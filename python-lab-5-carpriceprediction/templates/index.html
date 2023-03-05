@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5 Solution - Python for DS</title>
+
+    <style>
+        header {
+            background-color: rgb(0, 255, 200);
+            font-size: 25px;
+            padding: 20px;
+        }
+        header h1 {
+            font-style: bold;
+        }
+        body {
+            text-align: center;
+            margin: 0px;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: 25px;
+            color: rgb(0 179 141);
+        }
+        input {
+            padding: 10px 15px;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+        select {
+            padding: 10px 15px;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            margin: 0px auto;
+            margin-bottom: 20px;
+        }
+        td {
+            font-size: 18px;
+        }
+
+        /* Submit button css property */
+        .submit {
+            background-color: rgb(0 179 141);
+            width: 250px;
+            border: none;
+            color: #ffffff;
+            border-radius: 4px;
+            font-size: 16px
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Car Dekho Predictor</h1></header>
+    <div>
+        <h2>{{ prediction_text }}</h2>
+    </div>
+    <div>
+        <form method="POST" action="{{ url_for('predict')}}" >
+            <table>
+                <tr>
+                    <td>Age of the car</td>
+                    <td><input placeholder="Age of the car" type="text" name="age_of_the_car" required="required"></td>
+                </tr>
+                <tr>
+                    <td>Present price of car</td>
+                    <td><input placeholder="Present price of car" type="text" name="Present_Price" required="required"></td>
+                </tr>
+                <tr>
+                    <td>Kms Driven</td>
+                    <td><input placeholder="Kms Driven" type="text" name="Kms_Driven" required="required"></td>
+                </tr>
+                <tr>
+                    <td>Fuel Type</td>
+                    <td><select name="Fuel_Type" id="fuel" required="required">
+                            <option value="0">Petrol</option>
+                            <option value="1">Diesel</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Seller Type</td>
+                    <td><select name="Seller_Type" id="seller" required="required">
+                            <option value="0">Dealer</option>
+                            <option value="1">Individual</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Transmission</td>
+                    <td><select name="Transmission" id="transmission" required="required">
+                            <option value="0">Manual</option>
+                            <option value="1">Automatic</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Previous Owners</td>
+                    <td><input placeholder="Previous Owners" type="text" name="Owner" required="required"></td>
+                </tr>
+            </table>
+
+            <input class="submit" type="submit" value="Get Selling Price">
+        </form>
+    </div>
+</body>
+</html>
