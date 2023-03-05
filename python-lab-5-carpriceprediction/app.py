@@ -3,21 +3,16 @@ import pickle
 
 app = Flask(__name__)
 
-model = pickle.load(open('model.pkl', 'rb'))  # loading the trained model
+# loading the trained model
+model = pickle.load(open('model.pkl', 'rb')) 
 
-
+# loading the html form
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
-# In the above code, are returning the output of the function "render_template()".
-# This function accepts an input of an HTML page.
-# This function looks for the mentioned page under templates folder.
-# This is the reason we created this index.html form under templates folder.
 
-
-
-# Predict function to read the values from the UI and predict the price value.
+# Car price prediction function
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
